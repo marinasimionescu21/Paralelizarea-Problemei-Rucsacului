@@ -1,0 +1,23 @@
+Simionescu Marina-Ilariana, 336CA
+Pasi pentru implementarea temei:
+- am folosit scheletul de la implementarea secventiala
+- am modificat functia run_genetic_algorithm astfel incat sa se poata rula pe
+mai multe thread-uri
+- am creat functia run care sa ruleze pe fiecare thread
+- am creat un vector de threads si unul de argumente pentru fiecare thread in
+functia run
+- in functia run am paralelizat tot ce s-a putut, am aflat indicii de inceput
+si de sfarsit pe care actioneaza fiecare thread in functie de numarul de obiecte
+si numarul de threaduri
+- s-a paralelizat initializarea primei generatii
+- am paralelizat functia de calculare a fitnesului unei generatii, fiecare thread
+calculand pe intervalul pe care a fost asignat
+- am paralelizat sortarile astfel: fiecare thread isi sorteaza cu quicksort
+bucata lui din vector, apoi un singur thread face merge la bucatile sortate
+- am folosit bariere pentru a sincroniza threadurile
+- am paralelizat si mutatiile (pastrarea elitei, mutatia primilor 20% cu primul
+tip de mutatie si mutatia urmatorilor 20% cu al 2lea tip de mutatie)
+- am facut crossover pe un singur thread
+- se afiseaza fitness-ul cel mai bun o data la 5 generatii si pentru ultima
+generatie
+- se distruge bariera si se elibereaza memoria
